@@ -1,6 +1,6 @@
 import {ADD_COMMENT, REMOVE_COMMENT, EDIT_COMMENT, THUMB_UP_COMMENT, THUMB_DOWN_COMMENT} from './actions'
 
-const comments = function comments(state = [], action) {
+const comments = function(state = [], action) {
 	switch (action.type) {
 		case ADD_COMMENT:
 			return  [{
@@ -14,15 +14,16 @@ const comments = function comments(state = [], action) {
 
         case EDIT_COMMENT:
                 return state.map(comment => comment.id === action.id ?
-                    [ ...comment, {text: action.text}] : comment);
+                    { ...comment, text: action.text} : comment);
 
         case THUMB_UP_COMMENT:
+            console.log(state, action)
                 return state.map(comment => comment.id === action.id ?
-                    [ ...comment, {votes: comment.votes + 1}] : comment);
+                    { ...comment, votes: comment.votes + 1} : comment);
 
         case THUMB_DOWN_COMMENT:
                 return state.map(comment => comment.id === action.id ?
-                    [ ...comment, {votes: comment.votes - 1}] : comment);
+                    { ...comment, votes: comment.votes - 1} : comment);
 
             default:
                 return state;

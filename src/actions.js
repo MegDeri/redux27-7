@@ -29,18 +29,16 @@ export function removeComment(id) {
     }
 };
 
-export function thumbUp(idComment) {
+export function thumbUpComment(idComment) {
     return {
         type: THUMB_UP_COMMENT,
         id: idComment
-        
     }
 };
 
-export function thumbDown(idComment) {
+export function thumbDownComment(idComment) {
     return {
         type: THUMB_DOWN_COMMENT,
         id: idComment
-      
     }
 };
